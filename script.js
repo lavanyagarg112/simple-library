@@ -44,9 +44,16 @@ function showall(){
 showall();
 
 const addnewbook = document.querySelector(".newbook");
+const dialog = document.querySelector("dialog");
+const donebutton = document.querySelector("dialog button");
 
 function newbookclick(){
+    dialog.showModal();
 
 }
 
 addnewbook.addEventListener('click', newbookclick);
+
+donebutton.addEventListener("click", () => {
+    dialog.close();
+});
