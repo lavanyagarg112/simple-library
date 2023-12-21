@@ -19,3 +19,30 @@ function init() {
     addBookToLibrary(book2);
 }
 
+init();
+
+const bookarea = document.querySelector(".books");
+
+const liblen = myLibrary.length;
+for (let i = 0; i < liblen; i++){
+    const card = document.createElement("div")
+    const title = document.createElement("h4")
+    title.textContent = "Title: " + myLibrary[i].title;
+    const author = document.createElement("p")
+    author.textContent = "Author: " + myLibrary[i].author;
+    const pages = document.createElement("p")
+    pages.textContent = "Number of Pages: " + myLibrary[i].pages;
+    card.appendChild(title);
+    card.appendChild(author);
+    card.appendChild(pages);
+    card.style = "background-color: wheat; border: 2px solid black; padding: 8px; margin: 10px;"
+    bookarea.appendChild(card)
+}
+
+const addnewbook = document.querySelector(".newbook");
+
+function newbookclick(){
+    
+}
+
+addnewbook.addEventListener('click', newbookclick);
