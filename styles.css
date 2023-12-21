@@ -8,6 +8,7 @@ body{
     background-color: black;
     color: azure;
     justify-self: flex-start;
+    margin: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,13 +22,19 @@ body{
     border-radius: 8px;
 }
 
+.header button:hover {
+    background-color: wheat;
+}
+
 .books {
-    min-height: 500px;
+    min-height: 450px;
+    flex-wrap: wrap;
 }
 
 .footer {
     background-color: lightgray;
     justify-self: flex-end;
+    margin: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
