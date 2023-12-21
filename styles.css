@@ -15,6 +15,12 @@ body{
     padding: 20px;
 }
 
+.header button {
+    background-color: aquamarine;
+    padding: 8px;
+    border-radius: 8px;
+}
+
 .books {
     min-height: 500px;
 }
