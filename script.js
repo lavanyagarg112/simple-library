@@ -125,11 +125,20 @@ function newbookclick(){
         // Clear the form fields
         myForm.reset();
         dialog.close();
+
+        
         
         // removeAllChildElements(bookarea);
         // showall();
 
     });
+
+    const closed = document.querySelector("#closedialog")
+
+        closed.addEventListener("click", () => {
+            dialog.close();
+    })
+
 
 
 }
