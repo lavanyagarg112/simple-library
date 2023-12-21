@@ -1,0 +1,28 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.header {
+    background-color: black;
+    color: azure;
+    justify-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.books {
+    min-height: 500px;
+}
+
+.footer {
+    background-color: lightgray;
+    justify-self: flex-end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
