@@ -19,7 +19,7 @@ function init() {
     addBookToLibrary(book2);
 }
 
-init();
+// init();
 
 const bookarea = document.querySelector(".books");
 
