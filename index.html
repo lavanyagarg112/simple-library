@@ -10,9 +10,24 @@
     <script src="script.js" defer></script>
 
     <dialog>
-        <p>random dialogue</p>
-        <button>done</button>
+        <form id="myForm">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required><br><br>
+            
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" required><br><br>
+            
+            <label for="pages">Number of Pages:</label>
+            <input type="number" id="pages" name="pages" required><br><br>
+            
+            <label for="read">Read:</label>
+            <input type="checkbox" id="read" name="read"><br><br>
+            
+            <button type="submit" id="closebutton">Add Book</button>
+        </form>
+        
     </dialog>
+    
 
     <div class="header">
         <h1>Library</h1>

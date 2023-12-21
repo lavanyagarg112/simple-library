@@ -41,3 +41,28 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+::backdrop {
+    padding: 20px;
+    border: 2px solid aliceblue;
+}
+
+/* dialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} */
+
+dialog p {
+    text-align: center;
+}
+
+
+dialog button {
+
+    background-color: lightblue;
+    padding: 8px;
+    border-radius: 8px;
+
+}
+
