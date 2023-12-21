@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 function Book(title, author, pages, read){
     this.title = title;
@@ -31,65 +31,6 @@ function removeAllChildElements(container) {
 
 // Call the function to remove all child elements.
 removeAllChildElements(bookarea);
-
-
-function showall(){
-    const liblen = myLibrary.length;
-    for (let i = 0; i < liblen; i++){
-        if (myLibrary[i].title !== ""){
-            const card = document.createElement("div")
-            const title = document.createElement("h4")
-            title.textContent = "Title: " + myLibrary[i].title;
-            const author = document.createElement("p")
-            author.textContent = "Author: " + myLibrary[i].author;
-            const pages = document.createElement("p")
-            pages.textContent = "Number of Pages: " + myLibrary[i].pages;
-            card.appendChild(title);
-            card.appendChild(author);
-            card.appendChild(pages);
-            const btn = document.createElement("button");
-            let message = "";
-            if (myLibrary[i].read){
-                message = "Read"
-                btn.style = "background-color: lightgreen;"
-            } else {
-                message = "Not read yet"
-                btn.style = "background-color: lightpink;"
-            }
-            btn.textContent = message;
-            card.appendChild(btn);
-
-            btn.addEventListener("click", () => {
-                if (btn.textContent === "Read"){
-                    btn.textContent = "Not Read Yet";
-                    btn.style = "background-color: lightpink;";
-                } else {
-                    btn.textContent = "Read";
-                    btn.style = "background-color: lightgreen;";
-                }
-            });
-
-            const del = document.createElement("button");
-            del.textContent = "Delete"
-            del.style = "background-color: red; color: white; margin-left: 5px;"
-            card.appendChild(del);
-
-            del.addEventListener("click", () => {
-                const ind = i;
-                myLibrary.splice(ind, 1);
-                removeAllChildElements(bookarea);
-                showall();
-            })
-
-            card.style = "background-color: wheat; border: 2px solid black; padding: 8px; margin: 10px;"
-            bookarea.appendChild(card)
-
-        }
-        
-    }
-}
-
-showall();
 
 function addbooktodiv(book) {
     if (book.title !== ""){
@@ -125,11 +66,37 @@ function addbooktodiv(book) {
             }
         });
 
+        const del = document.createElement("button");
+            del.textContent = "Delete"
+            del.style = "background-color: red; color: white; margin-left: 5px;"
+            card.appendChild(del);
+
+            del.addEventListener("click", () => {
+                const thistitle = book.title;
+                myLibrary = myLibrary.filter(book => book.title !== thistitle);
+                removeAllChildElements(bookarea);
+                showall();
+            })
+
         card.style = "background-color: wheat; border: 2px solid black; padding: 8px; margin: 10px;"
         bookarea.appendChild(card)
     }
 
 }
+
+
+function showall(){
+    const liblen = myLibrary.length;
+    for (let i = 0; i < liblen; i++){
+        
+        addbooktodiv(myLibrary[i]);
+        
+    }
+}
+
+showall();
+
+
 
 const addnewbook = document.querySelector(".newbook");
 const dialog = document.querySelector("dialog");
