@@ -69,6 +69,18 @@ function showall(){
                 }
             });
 
+            const del = document.createElement("button");
+            del.textContent = "Delete"
+            del.style = "background-color: red; color: white; margin-left: 5px;"
+            card.appendChild(del);
+
+            del.addEventListener("click", () => {
+                const ind = i;
+                myLibrary.splice(ind, 1);
+                removeAllChildElements(bookarea);
+                showall();
+            })
+
             card.style = "background-color: wheat; border: 2px solid black; padding: 8px; margin: 10px;"
             bookarea.appendChild(card)
 
