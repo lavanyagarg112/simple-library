@@ -47,6 +47,28 @@ function showall(){
             card.appendChild(title);
             card.appendChild(author);
             card.appendChild(pages);
+            const btn = document.createElement("button");
+            let message = "";
+            if (myLibrary[i].read){
+                message = "Read"
+                btn.style = "background-color: lightgreen;"
+            } else {
+                message = "Not read yet"
+                btn.style = "background-color: lightpink;"
+            }
+            btn.textContent = message;
+            card.appendChild(btn);
+
+            btn.addEventListener("click", () => {
+                if (btn.textContent === "Read"){
+                    btn.textContent = "Not Read Yet";
+                    btn.style = "background-color: lightpink;";
+                } else {
+                    btn.textContent = "Read";
+                    btn.style = "background-color: lightgreen;";
+                }
+            });
+
             card.style = "background-color: wheat; border: 2px solid black; padding: 8px; margin: 10px;"
             bookarea.appendChild(card)
 
@@ -56,6 +78,46 @@ function showall(){
 }
 
 showall();
+
+function addbooktodiv(book) {
+    if (book.title !== ""){
+        const card = document.createElement("div")
+        const title = document.createElement("h4")
+        title.textContent = "Title: " + book.title;
+        const author = document.createElement("p")
+        author.textContent = "Author: " + book.author;
+        const pages = document.createElement("p")
+        pages.textContent = "Number of Pages: " + book.pages;
+        card.appendChild(title);
+        card.appendChild(author);
+        card.appendChild(pages);
+        const btn = document.createElement("button");
+        let message = "";
+        if (book.read){
+            message = "Read"
+            btn.style = "background-color: lightgreen;"
+        } else {
+            message = "Not read yet"
+            btn.style = "background-color: lightpink;"
+        }
+        btn.textContent = message;
+        card.appendChild(btn);
+
+        btn.addEventListener("click", () => {
+            if (btn.textContent === "Read"){
+                btn.textContent = "Not Read Yet";
+                btn.style = "background-color: lightpink;";
+            } else {
+                btn.textContent = "Read";
+                btn.style = "background-color: lightgreen;";
+            }
+        });
+
+        card.style = "background-color: wheat; border: 2px solid black; padding: 8px; margin: 10px;"
+        bookarea.appendChild(card)
+    }
+
+}
 
 const addnewbook = document.querySelector(".newbook");
 const dialog = document.querySelector("dialog");
@@ -79,13 +141,14 @@ function newbookclick(){
         
         // Add the new book to your library
         addBookToLibrary(newBook);
+        addbooktodiv(newBook);
         
         // Clear the form fields
         myForm.reset();
         dialog.close();
-        removeAllChildElements(bookarea);
-        console.log(myLibrary)
-        showall();
+        
+        // removeAllChildElements(bookarea);
+        // showall();
 
     });
 
